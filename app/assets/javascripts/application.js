@@ -17,7 +17,8 @@
 
 $(document).ready(function()
 	{
-	var flag=true;
+	var flag=false;
+	$("#newTodo").hide();
 	$("#showTC").click(function()
 		{
 			if(flag==true)
@@ -31,4 +32,6 @@ $(document).ready(function()
 				flag=!flag;
 			}
 	});
+	$("#cancel").click(function(){$("#newTodo").slideUp();});
+	$("#ok").click(function(){$("#newTodo").slideUp();});
 });

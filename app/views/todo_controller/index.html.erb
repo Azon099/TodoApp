@@ -18,7 +18,8 @@
 			<% projects = Project.all.map{|proj| [proj.title, proj.id]}%>
 			<%= select_tag(:project_id, options_for_select(projects)) %>
 		<p>
-			<a href='javascript://' name="sbm" onClick="var element = this; while (element = element.parentNode) if (typeof element.submit == 'function') { element.submit(); break; }">Добавить  задачу</a>
+			<a id="cancel" href='#'>Cancel</a>
+			<a id="ok" href='javascript://' name="sbm" onClick="var element = this; while (element = element.parentNode) if (typeof element.submit == 'function') { element.submit(); break; }">OK</a>
 		</p>
 	<% end %>
 </div>

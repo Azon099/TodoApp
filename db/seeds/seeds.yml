@@ -3,8 +3,6 @@ projects:
    todos:
     - text: 'Купить молоко'
       isCompleted: false
-    - text: 'Заменить масло в двигателе до 23 апреля'
-      isCompleted: false
     - text: 'Отправить письмо бабушке'
       isCompleted: true
     - text: 'Заплатить за квартиру'
@@ -19,13 +17,15 @@ projects:
       isCompleted: true
     - text: 'Заполнить отчет'
       isCompleted: false
+ - title: 'Авто'
+   todos:
+    - text: 'Поменять масло не позднее чем через 3000км'
+      isCompleted: false
+    - text: 'Заменить правый задний фонарь'
+      isCompleted: false
  - title: 'Прочее'
    todos:
     - text: 'Позвонить другу'
       isCompleted: false
     - text: 'Подготовиться к поездке'
-      isCompleted: false
- - title: 'Второе задание'
-   todos:
-    - text: 'Разобраться с бд'
       isCompleted: false

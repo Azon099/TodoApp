@@ -1,0 +1,24 @@
+	<% Project.all.each do |project| %>
+	  <tr>
+	    <h2><%= project.title %></h2>
+	    	<ul>
+	    		<% project.todos.each do |todo| %>
+	    			<li><%= todo.text %></li>
+	    		<% end %>
+	    	</ul>
+	  </tr>
+	<% end %>
+
+<a id="showTC" href="#">Добавить задачу</a>
+<div id="newTodo">
+	<%= form_tag("/todo_controller/newTodo", method: "post")  do %>
+		<h1>Новая задача</h1>
+		<%= text_field_tag :text%>
+			<p><b>Выберите тип задачи</b></p>
+			<% projects = Project.all.map{|proj| [proj.title, proj.id]}%>
+			<%= select_tag(:project_id, options_for_select(projects)) %>
+		<p>
+			<a href='javascript://' name="sbm" onClick="var element = this; while (element = element.parentNode) if (typeof element.submit == 'function') { element.submit(); break; }">Добавить  задачу</a>
+		</p>
+	<% end %>
+</div>

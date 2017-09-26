@@ -1,6 +1,6 @@
 class TodoControllerController < ApplicationController
   def index
-  	#@projects = Project.all
+  	@projs = Project.all
   end
 
   def newTodo

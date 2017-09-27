@@ -16,87 +16,94 @@
  *= require_self
  */
 
-.header{
-	display: flex;
-    flex-flow: row wrap;
-	vertical-align: bottom;
-	text-align: center;
-	background: #337ab7; /* фон кнопки */
-}
+ @font-face {
+ 	font-family: 'Panforte Pro';
+ 	src:font-url('/assets/fonts/10660.ttf');
+ 	font-weight: normal;
+ 	font-style: normal;
+ }
 
-.header h1{
-	font-family: "Vogue cyr"; 
-    font-weight: bolder;
-    color: white;
-	width: 95%;
-}
+ .header{
+ 	font-family: 'Panforte Pro';
+ 	display: flex;
+ 	flex-flow: row wrap;
+ 	vertical-align: bottom;
+ 	text-align: center;
+ 	background: #337ab7; 
+ }
 
-#showTC {
-	font-family: Verdana, Arial, Helvetica, sans-serif; 
-    font-size: 40pt; /* Размер шрифта в пунктах */ 
-    font-weight: 200;
-    color: white;
-	width: 4.99%;
-	color: #fff; /* цвет текста */
-	text-decoration: none; /* убирать подчёркивание у ссылок */
-	user-select: none; /* убирать выделение текста */
-	background: #337ab7; /* фон кнопки */
-	outline: none; /* убирать контур в Mozilla */
-} 
-#showTC:hover { font-weight: 600; } /* при наведении курсора мышки */
-#showTC:active { font-weight: 900; } /* при нажатии */
+ .header h1{
+ 	font-weight: bolder;
+ 	color: white;
+ 	width: 95%;
+ }
 
-.row-flex {
-    display: flex;
-    flex-flow: row wrap;
-}
+ #showTC {
+ 	font-size: 40pt; 
+ 	font-weight: 200;
+ 	color: white;
+ 	width: 4.99%;
+ 	color: #fff;
+ 	text-decoration: none;
+ 	user-select: none; 
+ 	background: #337ab7; 
+ 	outline: none;
+ } 
+ #showTC:hover { font-weight: 600; } 
+ #showTC:active { font-weight: 900; } 
 
-.todo {
-	font-family: "Vogue cyr";
-	font-weight: bold; 
-    margin: 5px;
-	-webkit-box-shadow: 0px 0px 31px -1px rgba(0,0,0,0.68);
-	-moz-box-shadow: 0px 0px 31px -1px rgba(0,0,0,0.68);	
-		box-shadow: 0px 0px 31px -1px rgba(0,0,0,0.68);
-}
+ .row-flex {
+ 	font-family: 'Panforte Pro';
+ 	display: flex;
+ 	flex-flow: row wrap;
+ }
 
-.todo h2{
-	font-weight: lighter; 
-}
+ .todo {
+ 	font-weight: bold; 
+ 	margin: 5px;
+ 	-webkit-box-shadow: 0px 0px 31px -1px rgba(0,0,0,0.68);
+ 	-moz-box-shadow: 0px 0px 31px -1px rgba(0,0,0,0.68);	
+ 	box-shadow: 0px 0px 31px -1px rgba(0,0,0,0.68);
+ }
 
-#parentNewTodo {
-  background: #000;
-  height: 100%;
-  opacity: 0.9;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-}
+ .todo h2{
+ 	font-weight: lighter; 
+ }
 
-#newTodo {
-	position: relative;
-	top: 30%;
-	height: 40%;
-	width: 30%;
-}
+ #parentNewTodo {
+ 	font-family: 'Panforte Pro';
+ 	background: #000;
+ 	height: 100%;
+ 	opacity: 0.9;
+ 	position: fixed;
+ 	width: 100%;
+ 	top: 0;
+ 	left: 0;
+ }
 
-.select2-selection, .select2-selection__rendered, .select2-selection__arrow {
+ #newTodo {
+ 	position: relative;
+ 	top: 30%;
+ 	height: 40%;
+ 	width: 30%;
+ }
 
-   height: 40px !important;
+ .select2-selection, .select2-selection__rendered, .select2-selection__arrow {
 
-   span {
+ 	height: 40px !important;
 
-       line-height: 40px !important;
+ 	span {
 
-       text-align: left;
+ 		line-height: 40px !important;
 
-   }
+ 		text-align: left;
 
-}
+ 	}
 
-.select2-selection {
+ }
 
-   border-radius: 0 !important;
+ .select2-selection {
 
-}
+ 	border-radius: 0 !important;
+
+ }

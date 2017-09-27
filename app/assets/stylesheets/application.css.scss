@@ -13,9 +13,8 @@
  *= require_tree
  *= require select2
  *= require_self
+ *= require bootstrap.min
  */
-
-@import url('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
 
 .header{
 	display: flex;

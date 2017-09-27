@@ -1,0 +1,103 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree
+ *= require select2
+ *= require_self
+ */
+
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+
+.header{
+	display: flex;
+    flex-flow: row wrap;
+	vertical-align: bottom;
+	text-align: center;
+	background: #337ab7; /* фон кнопки */
+}
+
+.header h1{
+	font-family: "Vogue cyr"; 
+    font-weight: bolder;
+    color: white;
+	width: 95%;
+}
+
+#showTC {
+	font-family: Verdana, Arial, Helvetica, sans-serif; 
+    font-size: 40pt; /* Размер шрифта в пунктах */ 
+    font-weight: 200;
+    color: white;
+	width: 4.99%;
+	color: #fff; /* цвет текста */
+	text-decoration: none; /* убирать подчёркивание у ссылок */
+	user-select: none; /* убирать выделение текста */
+	background: #337ab7; /* фон кнопки */
+	outline: none; /* убирать контур в Mozilla */
+} 
+#showTC:hover { font-weight: 600; } /* при наведении курсора мышки */
+#showTC:active { font-weight: 900; } /* при нажатии */
+
+.row-flex {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.todo {
+	font-family: "Vogue cyr";
+	font-weight: bold; 
+    margin: 5px;
+	-webkit-box-shadow: 0px 0px 31px -1px rgba(0,0,0,0.68);
+	-moz-box-shadow: 0px 0px 31px -1px rgba(0,0,0,0.68);	
+		box-shadow: 0px 0px 31px -1px rgba(0,0,0,0.68);
+}
+
+.todo h2{
+	font-weight: lighter; 
+}
+
+#parentNewTodo {
+  background: #000;
+  height: 100%;
+  opacity: 0.9;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+#newTodo {
+	position: relative;
+	top: 30%;
+	height: 40%;
+	width: 30%;
+}
+
+.select2-selection, .select2-selection__rendered, .select2-selection__arrow {
+
+   height: 40px !important;
+
+   span {
+
+       line-height: 40px !important;
+
+       text-align: left;
+
+   }
+
+}
+
+.select2-selection {
+
+   border-radius: 0 !important;
+
+}

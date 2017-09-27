@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'todo_controller/createTodo'
   post 'todo_controller/createTodo'
 
+  get 'todos/:id+:state' => 'todo_controller#updateTodos'
+
   #resources :projects
   resources :todos, controller: 'todo_controller'
   #For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

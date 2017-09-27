@@ -1,25 +1,54 @@
-	<% @projs.each do |project| %>
-	  <tr>
-	    <h2><%= project.title %></h2>
-	    	<ul>
-	    		<% project.todos.each do |todo| %>
-	    			<li><%= todo.text %></li>
-	    		<% end %>
-	    	</ul>
-	  </tr>
-	<% end %>
+<script>
+    $(document).ready(function() { $("#projSelect").select2(); });
+  </script>
 
-<a id="showTC" href="#">Добавить задачу</a>
-<div id="newTodo">
-	<%= form_tag("/todo_controller/newTodo", method: "post")  do %>
-		<h1>Новая задача</h1>
-		<%= text_field_tag :text%>
-			<p><b>Выберите тип задачи</b></p>
-			<% projects = @projs.map{|proj| [proj.title, proj.id]}%>
-			<%= select_tag(:project_id, options_for_select(projects)) %>
-		<p>
-			<a id="cancel" href='#'>Cancel</a>
-			<a id="ok" href='javascript://' name="sbm" onClick="var element = this; while (element = element.parentNode) if (typeof element.submit == 'function') { element.submit(); break; }">OK</a>
-		</p>
-	<% end %>
+<div class="header">
+	<h1>СПИСОК ЗАДАЧ</h1>
+	<a id="showTC" href="#">+</a>
+</div>
+
+<div class="container">
+		<div class="row-flex">   
+			<% @projs.each do |project| %>
+				<div class="col-lg-3 col-md-5 col-sm-12 col-xs-12 todo">
+				  	<h2><%= project.title %></h2>
+				    	<% project.todos.each do |todo| %>
+					    	<% if todo.isCompleted %>
+					    		<input id=<%= todo.id %> name="state" type="checkbox" checked>
+								<strike><%= todo.text %></strike>
+					    	<% else %>
+					    		<input id=<%= todo.id %> name="state" type="checkbox">
+								<label><%= todo.text %></label>
+					    	<% end %>
+						<p></p>
+				    <% end %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<div id="parentNewTodo" class="modal fade">
+	<div id="newTodo" class="modal-dialog">
+		<div class="modal-content">
+			<%= form_tag("/todo_controller/newTodo", method: "post") do %>
+				<div class="modal-header">
+					<h4 class="modal-title">Создание задачи</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+	                    	<label for="todoText">Текст задачи</label>
+	                    	<input value='' id="todoText" name="text" placeholder="Введите текст задачи..." type="text" class="form-control" />
+	                	</div>
+	                <% projects = @projs.map{|proj| [proj.title, proj.id]}%>
+					<select id="projSelect" name="project_id" data-minimum-results-for-search="Infinity"><%= options_for_select(projects) %></select>
+				</div>
+				<!-- Футер модального окна -->
+				<div class="modal-footer">
+					<button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+					<button id="SBMButton" type="button" class="btn btn-primary">Добавить задачу</button>
+				</div>
+			<% end %>
+		</div>
+	</div>
 </div>

@@ -12,26 +12,50 @@
 //
 //= require jquery
 //= require jquery_ujs
-
+//= require icheck
+//= require select2
 //= require_tree .
 
 $(document).ready(function()
-	{
-	var flag=false;
-	$("#newTodo").hide();
-	$("#showTC").click(function()
-		{
-			if(flag==true)
-			{
-				$("#newTodo").slideUp();
-				flag=!flag;
-			}
-			else
-			{
-				$("#newTodo").slideDown();
-				flag=!flag;
-			}
+{
+	$( "#dropdown" ).select2({
+		theme: "bootstrap"
 	});
-	$("#cancel").click(function(){$("#newTodo").slideUp();});
-	$("#ok").click(function(){$("#newTodo").slideUp();});
+
+	$('input').iCheck({
+		checkboxClass: 'icheckbox_square-purple',
+		radioClass: 'iradio_square-purple',
+    increaseArea: '70%' // optional
+});
+
+	$('input').on('ifChanged', function(event){
+		var element = this;
+		window.location.href = "/todos/" + element.id + "+" + (element.checked);
+	});
+	var flag=true;
+	$("#parentNewTodo").hide();
+	$("#showTC").click(function()
+	{
+		if(flag==true)
+		{
+			$("#parentNewTodo").show();
+			flag=!flag;
+		}
+		else
+		{
+			$("#parentNewTodo").hide();
+			flag=!flag;
+		}
+	});
+	$("#cancel").click(function(){$("#parentNewTodo").hide(); flag=!flag;});
+
+	$("#SBMButton").click(function(){
+		var element = this; 
+		while (element = element.parentNode) {
+			if (typeof element.submit == 'function') {
+				element.submit(); break; 
+			}
+		}
+	});
+	//	$("#ok").click(function(){$("#parentNewTodo").hide();});
 });

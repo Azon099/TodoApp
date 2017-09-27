@@ -11,6 +11,9 @@ class TodoControllerController < ApplicationController
   end
 
   def updateTodos
-
+    todo = Todo.find(params[:id])
+    todo.isCompleted = params[:state]
+    todo.save
+    redirect_to "/"
   end
 end

@@ -22,12 +22,9 @@ class TodoControllerController < ApplicationController
   end
 
   def mobileApp
-      string = '{"test":
-      [{
-        "board": "name",
-        "board2": "name2"
-      }]
-      }'
+      string = '{
+        "name":"Иван",}
+        "name2":" Иван"}'
     render json: JSON.parse(string)
   end
 end

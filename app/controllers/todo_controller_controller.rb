@@ -25,6 +25,7 @@ class TodoControllerController < ApplicationController
   def mobileApp
       #string = '{"name":"Иван","name2":" Иван"}'
       projects = Project.all.map{|proj| [proj.id, proj.title, proj.todos]}
-    render json: projects.to_json#projects.to_json#JSON.parse(string)1
+      projects = projects.to_json
+      render json: projects#projects.to_json#projects.to_json#JSON.parse(string)1
   end
 end

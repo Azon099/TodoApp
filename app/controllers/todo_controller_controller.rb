@@ -1,9 +1,10 @@
+require 'json'
+
 class TodoControllerController < ApplicationController
   def index
   	@projs = Project.all
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @projs }
     end
   end
 
@@ -22,9 +23,8 @@ class TodoControllerController < ApplicationController
   end
 
   def mobileApp
-      string = '{
-        "name":"Иван",
-        "name2":" Иван"}'
-    render json: JSON.parse(string)
+      #string = '{"name":"Иван","name2":" Иван"}'
+      projects = Project.all.map.with_index{|proj| [proj.id, proj.title, proj.todos]}
+    render json: projects.to_json#JSON.parse(string)
   end
 end

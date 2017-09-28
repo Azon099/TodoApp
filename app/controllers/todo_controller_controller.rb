@@ -1,6 +1,10 @@
 class TodoControllerController < ApplicationController
   def index
   	@projs = Project.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @projs }
+    end
   end
 
   def newTodo
@@ -15,5 +19,15 @@ class TodoControllerController < ApplicationController
     todo.isCompleted = params[:state]
     todo.save
     redirect_to "/"
+  end
+
+  def mobileApp
+      string = '{"test":
+      [{
+        "board": "name",
+        "board2": "name2"
+      }]
+      }'
+    render json: JSON.parse(string)
   end
 end

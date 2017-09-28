@@ -10,7 +10,7 @@ class TodoControllerController < ApplicationController
 
   def newTodo
   	proj = Project.find(params[:project_id])
-	todo = Todo.create text: params[:text]
+    todo = Todo.create text: params[:text]
   	proj.todos << todo
 	redirect_to "/"
   end
@@ -22,7 +22,7 @@ class TodoControllerController < ApplicationController
     redirect_to "/"
   end
 
-  def mobileApp
+  def mobileAppGet
       #string = '{"name":"Иван","name2":" Иван"}'
       projects = Project.all.map{|proj| [proj.id, proj.title, proj.todos]}
       projects = projects.to_json
@@ -45,5 +45,13 @@ class TodoControllerController < ApplicationController
       end
       jsStr += "]}"
       render json: jsStr#projects.to_json#projects.to_json#JSON.parse(string)1
+  end
+
+  def mobileAppSet
+    proj = Project.find(params[:project_id])
+    todo = Todo.create text: params[:text]
+    todo.save
+    proj.todos << todo
+    redirect_to "/"
   end
 end

@@ -12,11 +12,12 @@ Rails.application.routes.draw do
   get 'todo_controller/createTodo'
   post 'todo_controller/createTodo'
 
-  get 'todo_controller/mobileApp'
-  post 'todo_controller/mobileApp'
+  get 'todo_controller/mobileAppGet'
+  post 'todo_controller/mobileAppGet'
 
 
   get 'todos/:id+:state' => 'todo_controller#updateTodos'
+  get 'todos/add/:project_id|:text' => 'todo_controller#mobileAppSet'
 
   #resources :projects
   resources :todos, controller: 'todo_controller'

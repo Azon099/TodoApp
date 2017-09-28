@@ -26,6 +26,24 @@ class TodoControllerController < ApplicationController
       #string = '{"name":"Иван","name2":" Иван"}'
       projects = Project.all.map{|proj| [proj.id, proj.title, proj.todos]}
       projects = projects.to_json
-      render json: projects#projects.to_json#projects.to_json#JSON.parse(string)1
+      jsStr = "{"
+      jsStr += "\"Projects\" : ["
+
+      Project.all.each do |proj|
+        jsStr += "{\"id\" : \"#{proj.id}\",\"title\" : \"#{proj.title}\" , \"Todos\" : ["
+        proj.todos.each do |todo|
+          todoString = "{\"text\" : \"#{todo.text}\", \"isCompleted\" : \"#{todo.isCompleted}\", \"project_id\" : \"#{todo.project_id}\"}"
+          if not todo == proj.todos.last then
+            todoString += ","
+          end
+          jsStr += todoString
+        end
+        jsStr += "]}"
+        if not proj == Project.last then
+          jsStr += ","
+        end
+      end
+      jsStr += "]}"
+      render json: jsStr#projects.to_json#projects.to_json#JSON.parse(string)1
   end
 end

@@ -50,6 +50,7 @@ class TodoControllerController < ApplicationController
   def mobileAppSet
     proj = Project.find(params[:project_id])
     todo = Todo.create text: params[:text]
+    todo.isCompleted = false
     todo.save
     proj.todos << todo
     render json: "Pisos"

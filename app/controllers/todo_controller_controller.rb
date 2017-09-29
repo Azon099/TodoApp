@@ -32,7 +32,7 @@ class TodoControllerController < ApplicationController
       Project.all.each do |proj|
         jsStr += "{\"id\" : \"#{proj.id}\",\"title\" : \"#{proj.title}\" , \"Todos\" : ["
         proj.todos.each do |todo|
-          todoString = "{\"text\" : \"#{todo.text}\", \"isCompleted\" : \"#{todo.isCompleted}\", \"project_id\" : \"#{todo.project_id}\"}"
+          todoString = "{\"text\" : \"#{todo.text}\", \"isCompleted\" : \"#{todo.isCompleted}\", \"project_id\" : \"#{todo.project_id}\", \"id\" : \"#{todo.id}\"}"
           if not todo == proj.todos.last then
             todoString += ","
           end

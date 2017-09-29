@@ -30,7 +30,7 @@ $(document).ready(function()
 
 	$('input').on('ifChanged', function(event){
 		var element = this;
-		window.location.href = "/todos/" + element.id + "+" + (element.checked);
+		window.location.href = "/todos/" + element.id + "|" + (element.checked);
 	});
 	var flag=true;
 	$("#parentNewTodo").hide();

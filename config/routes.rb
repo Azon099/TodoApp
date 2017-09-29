@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post 'todo_controller/mobileAppGet'
 
 
-  get 'todos/:id+:state' => 'todo_controller#updateTodos'
+  get 'todos/:id|:state' => 'todo_controller#updateTodos'
   get 'todos/add/:project_id|:text' => 'todo_controller#mobileAppSet'
 
   #resources :projects

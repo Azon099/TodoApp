@@ -52,6 +52,6 @@ class TodoControllerController < ApplicationController
     todo = Todo.create text: params[:text]
     todo.save
     proj.todos << todo
-    redirect_to "/"
+    render json: "Pisos"
   end
 end
